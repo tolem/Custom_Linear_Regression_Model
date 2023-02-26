@@ -1,0 +1,52 @@
+<h5 id="description">Description</h5>
+<p>You have built your own linear regression model, congratulations! But the road has just begun. Once you have the prediction, you need to check the model performance. Several metrics can be used for this. We are going to look at <strong>R<sup>2</sup></strong> and <strong>RMSE </strong>or root mean square error.</p>
+<p>R<sup>2</sup> is also known as <strong>the coefficient of determination</strong>. It can give us the percentage of a dependent variable <span class="math-tex">\(\vec{y}\)</span> that was explained by the linear model. Imagine you are fitting the following linear regression model: <span class="math-tex">\(\vec{\hat{y}} = -0.07 + 3.2\vec{x} +2.3\vec{w} - 0.5\vec{z}\)</span>. When you substitute  <span class="math-tex">\(\vec{x}, \vec{w}\)</span>, and <span class="math-tex">\(\vec{z}\)</span> into the equation, you get the predicted value <span class="math-tex">\(\vec{\hat{y}}\)</span> (pronounced as <strong>y-hat</strong>). Since the notation becomes cumbersome, we will then omit the vector icon. Mind the distinction between a dependent variable <span class="math-tex">\(y\)</span> and a predicted variable <span class="math-tex">\(\hat{y}\)</span> .</p>
+<p>R<sup>2</sup> can be represented as:</p>
+<p><span class="math-tex">\[R^2(y, \hat{y}) = 1 - {\sum_{i=1}^{n}(y_i - \hat{y}_i)^2\over\sum_{i=1}^{n}(y_i - \bar{y})^2}\]</span><span class="math-tex">\(y_i\)</span> is a component of a dependent variable and <span class="math-tex">\(\bar{y}\)</span> is their mean. <span class="math-tex">\(\hat{y}_i\)</span> is a component of a predicted variable. R<sup>2 </sup>is a value between 0 and 1. The higher the value is, the better the model performance is.</p>
+<p>The next metric is RMSE. It can be represented as:</p>
+<p><span class="math-tex">\[MSE = {1\over n}\sum_{i=1}^n(y_i-\hat{y}_i)^2 \\ \\ \\ rmse = \sqrt{MSE}\]</span></p>
+<p>RMSE is the square root of the mean squared error or <strong>MSE</strong>. MSE measures the difference between a dependent and a predicted value.</p>
+<pre><code class="language-python">class CustomLinearRegression:
+
+    def __init__(self, *, fit_intercept=True):
+
+        self.fit_intercept = ...
+        self.coefficient = ...
+        self.intercept = ...
+
+    def fit(self, X, y):
+        pass
+
+    def predict(self, X):
+        pass
+
+    def r2_score(self, y, yhat):
+        pass
+
+    def rmse(self, y, yhat):
+        pass</code></pre>
+<p>Both RMSE and R<sup>2</sup> metrics consider dependent, <span class="math-tex">\(y\)</span>, and predicted, <span class="math-tex">\(\hat{y}\)</span>, variables and return floats.<br/>
+</p>
+<h5 id="objectives">Objectives</h5>
+<p>In this stage, your program should:</p>
+<ol>
+<li>Initialize a linear regression class with <code class="language-python">fit_intercept=True</code>;</li>
+<li>Fit the data by passing the <span class="math-tex">\(X\)</span> and <span class="math-tex">\(y\)</span> data;</li>
+<li>Predict <span class="math-tex">\(\hat{y}\)</span>  by passing the <span class="math-tex">\(X\)</span> data;</li>
+<li>Calculate RMSE and R<sup>2</sup> metrics;</li>
+<li>Print the intercept, coefficient, RMSE, and R<sup>2 </sup>values as a Python dictionary.</li>
+</ol>
+<p>You are investigating the relationship between the explanatory variables <code class="language-python">capacity</code> and <code class="language-python">age</code> and the dependent variable <code class="language-python">cost_per_ton</code>:</p>
+<pre><code class="language-python">capacity = [0.9, 0.5, 1.75, 2.0, 1.4, 1.5, 3.0, 1.1, 2.6, 1.9]
+age = [11, 11, 9, 8, 7, 7, 6, 5, 5, 4]
+cost_per_ton = [21.95, 27.18, 16.9, 15.37, 16.03, 18.15, 14.22, 18.72, 15.4, 14.69]</code></pre>
+<h5 id="example">Example</h5>
+<p><strong>Example 1:</strong> an example of the input</p>
+<pre><code class="language-python">capacity = [0.8, 0.85, 1.25, 1.35, 1.5, 1.6, 1.7, 2.5, 2.45, 2.6]
+age = [12, 12, 11, 10, 7, 7, 7, 4, 4, 3]
+cost_per_ton = [23.35, 26.87, 15.8, 17.25, 16.22, 18.15, 14.22, 17.78, 16.75, 16.5]</code></pre>
+<p><em>an example of your output</em></p>
+<pre><code class="language-no-highlight">{'Intercept': 16.586912879192067,
+ 'Coefficient': array([-1.08124586,  0.45415003]),
+ 'R2': 0.3397317490038354,
+ 'RMSE': 2.965674970069015}</code></pre>

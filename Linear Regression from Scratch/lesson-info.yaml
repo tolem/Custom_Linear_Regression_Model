@@ -1,0 +1,7 @@
+type: framework
+content:
+- Fit method
+- Multiple linear regression and predictions
+- Metrics implementation
+- Scikit-Learn linear regression
+current_task: 3

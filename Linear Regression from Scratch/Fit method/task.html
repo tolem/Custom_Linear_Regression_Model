@@ -1,0 +1,50 @@
+<h5 id="description">Description</h5>
+<p>Linear regressions are in charge of modeling the relationships between variables by fitting a straight line. As you have already learned, a simple linear model can be represented as: <span class="math-tex">\(\vec{y} = \beta_0 + \beta_1\vec{x}\)</span>.</p>
+<p><span class="math-tex">\(\vec{\beta}\)</span> is a vector of the model's coefficients that contains every <span class="math-tex">\(\beta_j\)</span> (in our case <span class="math-tex">\(j=0;1\)</span>). Finding the values of <span class="math-tex">\(\vec{\beta}\)</span> is known as <strong>model fitting</strong>. Recall how to find <span class="math-tex">\(\vec{\beta}\)</span>:</p>
+<p><span class="math-tex">\[X^t\vec{y} = X^tX\vec{\beta}\\ \vec{\beta} = ( X^tX)^{-1}X^t\vec{y}\]</span></p>
+<p><span class="math-tex">\(\beta_0\)</span> , which is the first component of the <span class="math-tex">\(\vec{\beta}\)</span>, is the intercept coefficient. At this stage, we are assuming our model always has an intercept. This assumption is not always true, we will see further how to set up systems of equations without an intercept. Other components of <span class="math-tex">\(\vec{\beta}\)</span> are the model's coefficients, which at this stage is only <span class="math-tex">\(\beta_1\)</span>.</p>
+<p>The custom linear regression class can take the following form:</p>
+<pre><code class="language-python">class CustomLinearRegression:
+
+    def __init__(self, *, fit_intercept=True):
+
+        self.fit_intercept = ...
+        self.coefficient = ...
+        self.intercept = ...
+
+    def fit(self, X, y):
+        pass
+</code></pre>
+<p>When the <code class="language-python">fit_intercept</code> parameter is passed as <code class="language-python">True</code> to the <code class="language-python">CustomLinearRegression</code> class, the method solves the system of equations as shown above. If <code class="language-python">fit_intercept=False</code>, it solves it without an intercept.  The <code class="language-python">coefficient</code> and <code class="language-python">intercept</code> attributes datatypes are <code class="language-python">numpy</code> array and float respectively. The <code class="language-python">*</code> argument in the <code class="language-python">__init__</code> method signifies that <code class="language-python">CustomLinearRegression</code> class can take more arguments than we would be using for this project.</p>
+<h5 id="objectives">Objectives</h5>
+<p>In this stage, your program should:</p>
+<p> </p>
+<ol>
+<li>Initialize <code class="language-python">CustomLinearRegression</code> class;</li>
+<li>Implement the <code class="language-python">fit()</code> method;</li>
+<li>Initialize your linear regression class with <code class="language-python">fit_intercept=True</code>;</li>
+<li>Fit the provided data;</li>
+<li>Print a dictionary containing the intercept and coefficient values.</li>
+</ol>
+<p>You are investigating the relationship between <code class="language-python">x</code> and <code class="language-python">y</code>. The data is provided in the code snippet below:</p>
+<pre><code class="language-python">x = [4.0, 4.5, 5, 5.5, 6.0, 6.5, 7.0]
+y = [33, 42, 45, 51, 53, 61, 62]</code></pre>
+<h5 id="example">Example</h5>
+<p><strong>Example 1:</strong><br/>
+<em>an example of the input</em></p>
+<pre><code class="language-python">x = [4.0, 7.0]
+y = [10.0, 16.0]</code></pre>
+<p><em>an example of your output</em></p>
+<pre><code class="language-no-highlight">{'Intercept': 2.0, 'Coefficient': array([2.])}</code></pre>
+<p><strong>Example 2:</strong><br/>
+<em>an example of the input</em></p>
+<pre><code class="language-python">x = [1.0, 2.0, 3.0, 4.0, 5.0]
+y = [0.0, 0.0, 0.0, 0.0, 0.0]</code></pre>
+<p><em>an example of your output</em></p>
+<pre><code class="language-no-highlight">{'Intercept': 0.0, 'Coefficient': array([0.])}</code></pre>
+<p> <strong>Example 3:</strong><br/>
+<em>an example of the input</em></p>
+<pre><code class="language-python">x = [1.0, 4.5, 14.0, 3.8, 7.0, 19.4]
+y = [106.0, 150.7, 200.9, 115.8, 177, 156]</code></pre>
+<p><em>an example of your output</em></p>
+<pre><code class="language-no-highlight">{'Intercept': 124.25623858009382, 'Coefficient': array([3.2366714])}</code></pre>

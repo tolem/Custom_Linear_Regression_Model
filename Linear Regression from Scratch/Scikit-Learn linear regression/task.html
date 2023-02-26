@@ -1,0 +1,32 @@
+<h5 id="description">Description</h5>
+<p>You have built your own linear regression model and tested its performance. This stage will check how well your model performs against the <code class="language-python">LinearRegression</code> algorithm from <code class="language-python">sklearn</code> library. </p>
+<p>Import the <strong>linear regression algorithm </strong>and <strong>metrics </strong>first. Note that <code class="language-python">sklearn</code> has only MSE metric, so you have to take additional action to calculate RMSE. After that, initialize the algorithm as shown below:</p>
+<pre><code class="language-python">from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+
+regSci = LinearRegression(fit_intercept=True)</code></pre>
+<p>Let's compare the performances of <code class="language-python">CustomLinearRegression</code> and <code class="language-python">LinearRegression</code> on new data:</p>
+<pre><code class="language-python">f1 = [2.31, 7.07, 7.07, 2.18, 2.18, 2.18, 7.87, 7.87, 7.87, 7.87]
+f2 = [65.2, 78.9, 61.1, 45.8, 54.2, 58.7, 96.1, 100.0, 85.9, 94.3]
+f3 = [15.3, 17.8, 17.8, 18.7, 18.7, 18.7, 15.2, 15.2, 15.2, 15.2]
+y = [24.0, 21.6, 34.7, 33.4, 36.2, 28.7, 27.1, 16.5, 18.9, 15.0]</code></pre>
+<p>Given three explanatory variables (<code class="language-python">f1</code>, <code class="language-python">f2</code>, and <code class="language-python">f3</code>), you should predict <code class="language-python">y</code>.</p>
+<h5 id="objectives">Objectives</h5>
+<p>In this stage, your program should:</p>
+<ol>
+<li>Import  <code class="language-python">LinearRegression</code> and metrics from <code class="language-python">sklearn</code>;</li>
+<li>Fit the data by passing the <span class="math-tex">\(X\)</span> and <span class="math-tex">\(y\)</span> data to <code class="language-python">LinearRegression</code> and <code class="language-python">CustomLinearRegression</code>;</li>
+<li>Predict the <span class="math-tex">\(\hat{y}\)</span> values with <code class="language-python">LinearRegression</code> and <code class="language-python">CustomLinearRegression</code>;</li>
+<li>Calculate the RMSE and R<sup>2</sup> metrics for the predictions of both implementations;</li>
+<li>Check how much the calculations of the two implementations differ: print the differences between intercept, coefficient, RMSE, and R<sup>2</sup> values of <code class="language-python">LinearRegression</code> and <code class="language-python">CustomLinearRegression</code> as a Python dictionary.</li>
+</ol>
+<h5 id="example">Example</h5>
+<p><strong>Example 1:</strong> <em>an example of your output (for reference only, actual values may differ)</em></p>
+<pre><code class="language-no-highlight">{'Intercept': 0.00056007036300,
+ 'Coefficient': array([0.00213905, 0.00085654, -1.566643]),
+ 'R2': 0.0000308382886207,
+ 'RMSE': 0.0007131673075276}</code></pre>
+<p> </p>
+<div style="">
+<div class="gtx-trans-icon"> </div>
+</div>
